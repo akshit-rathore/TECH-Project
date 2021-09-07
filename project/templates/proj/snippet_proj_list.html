@@ -1,0 +1,21 @@
+<div class="row">
+    {% for proj in projects %}
+        <div class="post-wrapper col-sm-4 py-2">
+            <div class="card-post box-shadow">
+                <a href="{{proj.get_absolute_url}}">
+                <img class="card-img-top" src="https://picsum.photos/id/{{proj.id}}/500/350" alt="{{proj.title}}"></a>
+                <div class="card-body">
+                    <a href="{{proj.get_absolute_url}}">
+                        <div class="card-title">{{proj.title|truncatewords:"3"}}</div>
+                    </a>
+                    <div class="card-subtext">
+                        <a href="{{proj.author.get_absolute_url}}" class="">{{proj.author.username}}</a>
+                    </div>
+                    <div class="card-text">
+                        {{proj.body|truncatewords:"30"}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
